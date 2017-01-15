@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class NgtempPage {
+export class TempPage {
   navigateTo() {
     return browser.get('/');
   }
