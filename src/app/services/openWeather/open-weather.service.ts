@@ -5,30 +5,22 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class OpenWeatherService {
 
-  private API_KEY: string = 'c5ac0098c8c7b7a5512b4679a5b11f9f';
-  private BASE_URL: string = 'http://api.openweathermap.org/data/2.5/group?';
+  private API_KEY: string = "c5ac0098c8c7b7a5512b4679a5b11f9f";
+  private BASE_URL: string = "http://api.openweathermap.org/data/2.5";
+  private ENDPOINT_GROUP: string = "group";
 
-  constructor(private http: Http) {
-
-  }
+  constructor(private http: Http) { }
 
   getcityById(cityId: number): Promise<any> {
     return Promise.resolve(true);
   }
 
+  getGroupForecasts(groupIds: number[]): Promise<any> {
+    let ids = groupIds.join(",");
 
-
-  getForecast(): Promise<any[]> {
-    return this.http.get(`${this.BASE_URL}id=524901,703448,2643743&units=metric&appid=${this.API_KEY}`)
+    return this.http.get(`${this.BASE_URL}/${this.ENDPOINT_GROUP}?appid=${this.API_KEY}&id=${ids}&units=metric`)
       .toPromise()
       .then(response => response.json());
-  }
-
-  getCities(): [any] {
-    console.log("service getCities()");
-    return [{
-      name: "city name"
-    }];
   }
 
 }

@@ -8,17 +8,20 @@ import {OpenWeatherService} from "../../services/openWeather/open-weather.servic
 })
 export class CitiesComponent implements OnInit {
   private cities: any[];
+  private defaultCitiesIds: number[];
 
-  constructor(private _openWeatherService: OpenWeatherService) { }
+  constructor(private openWeatherService: OpenWeatherService) {
+    this.defaultCitiesIds = [524901,703448,2643743];
+  }
 
   ngOnInit() {
-    console.log("init");
-    this.cities = this.getCities();
+    this.getGroupForecasts().then(response => {
+      console.log("response:" , response);
+      this.cities = response.list;
+    });
   }
 
-  getCities(): [any] {
-    console.log("getCities()");
-    return this._openWeatherService.getCities();
+  getGroupForecasts(): Promise<any> {
+    return this.openWeatherService.getGroupForecasts(this.defaultCitiesIds);
   }
-
 }
