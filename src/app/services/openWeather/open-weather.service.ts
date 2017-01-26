@@ -24,4 +24,11 @@ export class OpenWeatherService {
       .then(response => response.json());
   }
 
+  getCities(): [any] {
+    console.log("service getCities()");
+    return [{
+      name: "city name"
+    }];
+  }
+
 }
