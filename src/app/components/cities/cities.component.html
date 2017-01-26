@@ -1,5 +1,3 @@
-<ul>
-  <li *ngFor="let city of cities">
-    {{ city.name }}
-  </li>
-</ul>
+<div class="row">
+  <city class="col-xs-12" *ngFor="let city of cities" [city]="city"></city>
+</div>
