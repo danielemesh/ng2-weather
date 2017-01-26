@@ -5,14 +5,12 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { CitiesComponent } from './components/cities/cities.component';
 import { CityComponent } from './components/city/city.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    CitiesComponent,
     CityComponent
   ],
   imports: [
