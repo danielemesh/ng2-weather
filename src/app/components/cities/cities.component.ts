@@ -17,7 +17,7 @@ export class CitiesComponent implements OnInit {
   ngOnInit() {
     this.getGroupForecasts().then(response => {
       console.log("response:" , response);
-      this.cities = response.list;
+      this.cities = response;
     });
   }
 

@@ -9,13 +9,17 @@ export class CityComponent implements OnInit {
 
   @Input() city;
   description: string;
+  iconUrl: string;
+
 
   constructor() { }
 
   ngOnInit() {
-    this.description = this.city.weather[0].description;
+    this.description = this.getWeatherObject().description;
+    this.iconUrl = this.getWeatherObject().icon;
   }
 
-
-
+  getWeatherObject(): any {
+    return this.city.weather[0];
+  }
 }
