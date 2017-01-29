@@ -9,13 +9,16 @@ import { OpenWeatherService } from "./services/openWeather/open-weather.service"
 })
 export class AppComponent implements OnInit {
   city: any;
+  defaultCityId: number;
 
   constructor(private openWeatherService: OpenWeatherService) {}
 
   ngOnInit() {
-    this.openWeatherService.getCityForecast().then(res =>  {
-      console.log("res", res);
-      this.city = res;
+    this.defaultCityId = 294778;
+
+    this.openWeatherService.getCityForecast(this.defaultCityId).then(city => {
+      this.city = city;
+      console.log("city: ", this.city);
     });
   }
 
@@ -25,7 +28,11 @@ export class AppComponent implements OnInit {
     // Extract city ID
 
     // Issue a request to the openWeather API to get the city forecast
+    let newCity = this.openWeatherService.getCityForecast()
+      .then(city => {
+        newCity = city;
 
-    console.log("name", cityName);
+        console.log("newCity", newCity);
+      });
   }
 }
