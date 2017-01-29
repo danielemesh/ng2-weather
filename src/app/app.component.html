@@ -1,4 +1,22 @@
 <navbar></navbar>
 
 <div class="container">
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <input class="form-control" placeholder="Search for a city..." autofocus
+               #cityName
+               (keyup.enter)="addCity(cityName.value); cityName.value = ''">
+        <span class="input-group-btn">
+                <button class="btn btn-default"
+                        (click)="addCity(cityName.value); cityName.value = ''">ADD</button>
+            </span>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <city *ngIf="city" [city]="city"></city>
 </div>

@@ -12,11 +12,11 @@ export class CityComponent implements OnInit {
   iconUrl: string;
 
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
-    this.description = this.getWeatherObject().description;
-    this.iconUrl = this.getWeatherObject().icon;
+    // this.description = this.getWeatherObject().description;
+    // this.iconUrl = this.getWeatherObject().icon;
   }
 
   getWeatherObject(): any {

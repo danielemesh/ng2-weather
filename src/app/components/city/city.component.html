@@ -1,9 +1,11 @@
+{{ city }}
+
 <div class="panel panel-info">
   <!-- Default panel contents -->
   <div class="panel-heading">
     <div class="row">
       <div class="col-sm-4">
-        <h2>{{ city.name }} <img src="{{ iconUrl }}" alt="icon"/></h2>
+        <h2>{{ city.city.name }} <img src="{{ iconUrl }}" alt="icon"/></h2>
         <h4>{{ city.date | date }}</h4>
       </div>
       <div class="col-sm-4">
